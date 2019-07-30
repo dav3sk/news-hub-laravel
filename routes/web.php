@@ -18,3 +18,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'user'], function () {
+    Route::get('/edit', 'UserController@edit')->name('user.edit');
+    Route::put('/{user}', 'UserController@update')->name('user.update');
+
+    Route::get('/favorites', function () {
+        return view('user/favorites');
+    });
+});
