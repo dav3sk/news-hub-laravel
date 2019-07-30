@@ -3,6 +3,8 @@
 @section('title', 'NewsHub')
 
 @section('content_header')
+    @include('flash-message')
+
     <h1>
         @php
             $time = date('H', time());
