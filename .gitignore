@@ -18,3 +18,6 @@ Homestead.json
 
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
+
+# Exception for modified adminlte templates
+!resources/views/vendor/adminlte/login.blade.php
