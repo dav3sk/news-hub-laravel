@@ -32,9 +32,20 @@ class UserController extends Controller
 
             $user->update($request->all());
         }
+        else {
+            $user->update([
+                'name' => $request->input('name'),
+                'email' => $request->input('email')
+            ]);
+        }
 
-        $user->save();
+        try {
+            $user->save();
 
-        return redirect()->route('home');
+            return redirect()->route('home')->with('success','Dados atualizados com sucesso!');
+        }
+        catch (\Exception $e) {
+            return redirect()->route('home')->with('success','Falha ao atualizadar dados!');
+        }
     }
 }
