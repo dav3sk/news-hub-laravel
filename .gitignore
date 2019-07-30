@@ -21,3 +21,4 @@ Homestead.json
 
 # Exception for modified adminlte templates
 !resources/views/vendor/adminlte/login.blade.php
+!resources/views/vendor/adminlte/register.blade.php
