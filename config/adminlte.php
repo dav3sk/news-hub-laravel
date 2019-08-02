@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>News</b>Hub',
+    'logo' => '<b>News</b> Hub',
 
     'logo_mini' => '<b>N</b>H',
 
@@ -58,7 +58,7 @@ return [
     |
     */
 
-    'layout' => null,
+    'layout' => 'top-nav',
 
     /*
     |--------------------------------------------------------------------------
@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'collapse_sidebar' => true,
+    'collapse_sidebar' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -108,14 +108,18 @@ return [
     */
 
     'menu' => [
-        'Informações Pessoais',
+        [
+            'text'       => 'Buscar notícias',
+            'url'        => 'home',
+            'icon'       => 'file-text',
+            'icon_color' => 'green',
+        ],
         [
             'text'       => 'Editar cadastro',
             'url'        => 'user/edit',
             'icon'       => 'user',
             'icon_color' => 'blue',
         ],
-        'Favoritos',
         [
             'text'       => 'Meus Favoritos',
             'url'        => 'user/favorites',
