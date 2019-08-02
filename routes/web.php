@@ -19,10 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'user'], function () {
+Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
     Route::get('/edit', 'UserController@edit')->name('user.edit');
     Route::put('/{user}', 'UserController@update')->name('user.update');
 
-    Route::get('/favorites', 'FavoritesController@show')->name('favorites.show');
+    Route::get('/favorites', 'FavoritesController@index')->name('favorite.index');
+    Route::post('/favorites', 'FavoritesController@create')->name('favorite.create');
     // Route::delete('/{favorites}', 'FavoritesController@delete')->name('favorites.delete');
 });
