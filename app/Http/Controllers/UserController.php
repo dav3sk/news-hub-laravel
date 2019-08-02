@@ -13,7 +13,8 @@ class UserController extends Controller
     /**
      * Show form to edit current user
      */
-    public function edit () {
+    public function edit ()
+    {
         $user = Auth::user();
         $user->password = "";
 
@@ -26,7 +27,8 @@ class UserController extends Controller
         return view('user.edit', compact('form'));
     }
 
-    public function update (Request $request, User $user) {
+    public function update (Request $request, User $user)
+    {
         if ($request->password) {
             $request['password'] = Hash::make($request->password);
 
