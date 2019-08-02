@@ -24,7 +24,7 @@
 @section('content')
 <div class="box box-primary">
     <div class="box-body">
-        <table class="table table-bordered" style="text-align: center">
+        <table class="table table-bordered">
             <tbody>
                 @if (count($news) > 0)
                 <tr>
@@ -74,7 +74,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script>
         $('.add-favorite').on('click', function () {
-            $(this).attr("disabled", true);
             var article = $(this).data('new');
 
             $.ajax({
@@ -93,7 +92,6 @@
                         type: 'success',
                         customClass: 'swal-big-font',
                     })
-                    window.location.reload();
                 },
                 error: function (xhr) {
                     console.log(xhr);
@@ -103,7 +101,6 @@
                         type: 'error',
                         customClass: 'swal-big-font',
                     })
-                    $('.add-favorite').attr("disabled", false);
                 }
             });
         })
@@ -118,7 +115,7 @@
         td {
             vertical-align: middle !important;
         }
-        th {
+        th, td {
             text-align: center !important;
         }
     </style>
