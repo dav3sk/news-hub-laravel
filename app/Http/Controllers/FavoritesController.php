@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Favorite;
 use App\Http\Requests\FavoriteStoreRequest;
-use Illuminate\Http\Request;
 
 class FavoritesController extends Controller
 {
+
+    private $items_per_page = 5;
+
     public function index ()
     {
-        $favorites = Favorite::where('user_id', Auth::user()->id)->get();
+        $favorites = (Favorite::where('user_id', Auth::user()->id))->paginate($this->items_per_page);
 
         return view('user\favorites', compact('favorites'));
     }

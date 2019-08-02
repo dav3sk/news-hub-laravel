@@ -11,29 +11,29 @@
         <div class="box-body">
             <table class="table table-bordered">
                 <tbody>
+                    @if ($favorites->count() > 0)
                     <tr>
-                        <th class="image">
+                        <th>
                             Imagem
                         </td>
-                        <th class="title">
+                        <th>
                             Título
                         </th>
-                        <th class="date">
+                        <th>
                             Data
                         </th>
                     </tr>
-                    @if ($favorites->count() > 0)
                     @foreach ($favorites as $fav)
                         <tr>
-                            <td class="image">
+                            <td>
                                 <img src={{$fav->url_image}} width="150">
                             </td>
-                            <td class="title">
+                            <td>
                                 <a href={{$fav->url}} target="_blank">
                                     <h3> {{$fav->title}} </h3>
                                 </a>
                             </td>
-                            <td class="date">
+                            <td>
                                 {{date('d/m/Y', strtotime($fav->date))}}
                             </td>
                         </tr>
@@ -44,21 +44,15 @@
                 </tbody>
             </table>
         </div>
+        <div class="box-footer">
+            {{ $favorites->links() }}
+        </div>
     </div>
 @endsection
 
 @section('css')
     <style>
-        .image {
-            width: 20%;
-        }
-        .title {
-            width: 70%;
-        }
-        .date {
-            width: 10%;
-        }
-        th, td {
+        th, td, .box-footer {
             text-align: center;
         }
         td {
