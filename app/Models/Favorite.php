@@ -12,16 +12,7 @@ class Favorite extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'url_image', 'url', 'date',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'date' => 'datetime',
+        'user_id', 'title', 'url_image', 'url', 'date',
     ];
 
     /**
