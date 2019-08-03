@@ -47,7 +47,7 @@ class UserController extends Controller
             return redirect()->route('home')->with('success','Dados atualizados com sucesso!');
         }
         catch (\Exception $e) {
-            return redirect()->route('home')->with('success','Falha ao atualizadar dados!');
+            return redirect()->route('home')->with('error','Falha ao atualizadar dados!');
         }
     }
 }
