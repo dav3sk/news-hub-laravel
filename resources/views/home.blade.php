@@ -23,10 +23,40 @@
 
 @section('content')
 <div class="box box-primary">
+    <div class="box-header">
+        <h4>Pesquisar notícias:</h4>
+        <form action="/search" method="POST" role="search">
+            {{ csrf_field() }}
+            <div class="input-group input-group-lg">
+                <input class="form-control" type="text" name="keyword">
+                <span class="input-group-btn">
+                    <button class="btn btn-info btn-flat" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+
+            <label>Definir intervalo de tempo:</label>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <div class="input-group-addon">Inicio:</div>
+                        <input class="form-control" type="date" name="date_start">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <div class="input-group-addon">Fim:</div>
+                        <input class="form-control" type="date" name="date_end">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
     <div class="box-body">
         <table class="table table-bordered">
             <tbody>
-                @if (count($news) > 0)
+                @if (isset($news))
                 <tr>
                     <th>
                         Imagem
@@ -53,13 +83,11 @@
                     </td>
                     <td>
                     <a class="btn btn-xs add-favorite" data-new="{{json_encode($new)}}">
-                            <i class="fa fa-plus" style="font-size: 60px;"></i>
-                        </a>
+                        <i class="fa fa-plus" style="font-size: 60px;"></i>
+                    </a>
                     </td>
                 </tr>
                 @endforeach
-                @else
-                    Nenhum artigo encontrado...
                 @endif
             </tbody>
         </table>
