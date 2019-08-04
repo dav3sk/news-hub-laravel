@@ -25,10 +25,10 @@
 <div class="box box-primary">
     <div class="box-header">
         <h4>Pesquisar notícias:</h4>
-        <form action="/search" method="POST" role="search">
+        <form action="{{route('search')}}" method="POST" role="search">
             {{ csrf_field() }}
             <div class="input-group input-group-lg">
-                <input class="form-control" type="text" name="keyword">
+                <input class="form-control" type="text" name="keyword" required>
                 <span class="input-group-btn">
                     <button class="btn btn-info btn-flat" type="submit">
                         <i class="fa fa-search"></i>
@@ -53,45 +53,45 @@
             </div>
         </form>
     </div>
-    <div class="box-body">
-        <table class="table table-bordered">
-            <tbody>
-                @if (isset($news))
-                <tr>
-                    <th>
-                        Imagem
-                    </td>
-                    <th>
-                        Título
-                    </th>
-                    <th>
-                        Data
-                    </th>
-                </tr>
-                @foreach ($news as $new)
-                <tr>
-                    <td>
-                        <img src={{$new['urlToImage']}} width="150">
-                    </td>
-                    <td>
-                        <a href={{$new['url']}} target="_blank">
-                            <h3> {{$new['title']}} </h3>
+    @if (isset($news))
+        <div class="box-body">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>
+                            Imagem
+                        </td>
+                        <th>
+                            Título
+                        </th>
+                        <th>
+                            Data
+                        </th>
+                    </tr>
+                    @foreach ($news as $new)
+                    <tr>
+                        <td>
+                            <img src={{$new['urlToImage']}} width="150">
+                        </td>
+                        <td>
+                            <a href={{$new['url']}} target="_blank">
+                                <h3> {{$new['title']}} </h3>
+                            </a>
+                        </td>
+                        <td>
+                            {{date('d/m/Y', strtotime($new['publishedAt']))}}
+                        </td>
+                        <td>
+                        <a class="btn btn-xs add-favorite" data-new="{{json_encode($new)}}">
+                            <i class="fa fa-plus" style="font-size: 60px;"></i>
                         </a>
-                    </td>
-                    <td>
-                        {{date('d/m/Y', strtotime($new['publishedAt']))}}
-                    </td>
-                    <td>
-                    <a class="btn btn-xs add-favorite" data-new="{{json_encode($new)}}">
-                        <i class="fa fa-plus" style="font-size: 60px;"></i>
-                    </a>
-                    </td>
-                </tr>
-                @endforeach
-                @endif
-            </tbody>
-        </table>
-    </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    @endif
     <div class="box-footer" style="text-align:center">
         Powered by <a href="https://newsapi.org/">News API.</a>
     </div>
