@@ -44,4 +44,4 @@ php artisan serve
  ## Esclarecimentos
  
 * Utilizar somente localhost, caso contrário, a validação reCAPTCHA não funcionará.
-* O requisito de paginação de notícias utilizando ajax não foi implementado.
+* O requisito de paginação de notícias utilizando ajax (c.iv) não foi implementado.
