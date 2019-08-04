@@ -30,6 +30,12 @@ class HomeController extends Controller
         return view('home');
     }
 
+    /**
+     * Returns home view with news fetched from News API
+     *
+     * @param SearchRequest $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function search(SearchRequest $request)
     {
         $request_url = $this->build_request($request);
@@ -51,6 +57,12 @@ class HomeController extends Controller
         return view('home', compact('news'));
     }
 
+    /**
+     * Builds request string to send to News API
+     *
+     * @param SearchRequest $request
+     * @return string
+     */
     private function build_request(SearchRequest $request)
     {
         $url = $this->api_url;

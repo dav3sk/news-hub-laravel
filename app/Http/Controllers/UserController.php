@@ -12,6 +12,8 @@ class UserController extends Controller
 {
     /**
      * Show form to edit current user
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit ()
     {
@@ -27,6 +29,13 @@ class UserController extends Controller
         return view('user.edit', compact('form'));
     }
 
+    /**
+     * Updates a user's information
+     *
+     * @param Request $request
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update (Request $request, User $user)
     {
         if ($request->password) {

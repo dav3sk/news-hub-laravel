@@ -8,9 +8,18 @@ use App\Http\Requests\FavoriteStoreRequest;
 
 class FavoritesController extends Controller
 {
-
+    /**
+     * Number of items per page
+     *
+     * @var int
+     */
     private $items_per_page = 5;
 
+    /**
+     * Returns favorites view with all the user favorites
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index ()
     {
         $favorites = (Favorite::where('user_id', Auth::user()->id))->paginate($this->items_per_page);
@@ -18,6 +27,12 @@ class FavoritesController extends Controller
         return view('user\favorites', compact('favorites'));
     }
 
+    /**
+     * Creates and stores a new user favorite
+     *
+     * @param FavoriteStoreRequest $request
+     * @throws \Throwable
+     */
     public function create (FavoriteStoreRequest $request)
     {
         $article = new Favorite([
@@ -31,6 +46,12 @@ class FavoritesController extends Controller
         $article->saveOrFail();
     }
 
+    /**
+     * Deletes a user favorite
+     *
+     * @param Favorite $favorite
+     * @throws \Exception
+     */
     public function delete (Favorite $favorite)
     {
         $favorite->delete();
