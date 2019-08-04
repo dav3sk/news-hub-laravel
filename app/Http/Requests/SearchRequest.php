@@ -26,8 +26,8 @@ class SearchRequest extends FormRequest
         return [
             'keyword'   => 'required|string',
             'category'   => 'string',
-            'date_start' => 'date',
-            'date_end'   => 'date',
+            'date_start' => 'sometimes',
+            'date_end'   => 'sometimes',
         ];
     }
 
