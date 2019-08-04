@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/search', 'HomeController@search')->name('search');
+Route::post('/home', 'HomeController@search')->name('search');
 
 Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
     Route::get('/edit', 'UserController@edit')->name('user.edit');
