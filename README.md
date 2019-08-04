@@ -29,9 +29,9 @@ php artisan key:generate
 php artisan migrate --seed
 php artisan serve
 ```
-* Utilizar somente localhost, caso contrário, a validação reCAPTCHA não funcionará.
 
 ## Ferramentas
+
 * [Laravel 5.8](https://laravel.com/docs/5.8)
 * [News API](https://newsapi.org/)
 * [reCAPTCHA](https://www.google.com/recaptcha/intro/v3.html)
@@ -41,3 +41,7 @@ php artisan serve
 * [Guzzle](https://github.com/guzzle/guzzle)
 * [reCAPTCHA for Laravel 5](https://github.com/greggilbert/recaptcha)
  
+ ## Esclarecimentos
+ 
+* Utilizar somente localhost, caso contrário, a validação reCAPTCHA não funcionará.
+* O requisito de paginação de notícias utilizando ajax não foi implementado.
