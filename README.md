@@ -4,7 +4,6 @@
 
 Criar .env (usar arquivo ".env.example") e adicionar chaves do reCAPTCHA.
 ```
-
 RECAPTCHA_PUBLIC_KEY=6LeuOLAUAAAAAMxHl1HHq5-LatgNR5NdrBsVCZ7T
 RECAPTCHA_PRIVATE_KEY=6LeuOLAUAAAAAPkmKzXaD1jCEBRyR_ukKKeXIqeY
 ```
